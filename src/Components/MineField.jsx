@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Rows from './rows.jsx'
+import Row from './rows.jsx'
 
 export default class MineField extends Component {
   constructor(props) {
