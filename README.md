@@ -1,3 +1,6 @@
+## A react project to get used to the library.
+## Used https://github.com/shibe97/React-MineSweeper/ as the referrence for this code.
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
