@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Cell from './Cell.jsx';
 
 export default class Row extends Component {
   constructor(props) {
