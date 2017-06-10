@@ -109,7 +109,7 @@ export default class MineField extends Component {
 
   }
   render() {
-    var Rows = this.state.map((row, index) => {
+    var Rows = this.state.rows.map((row, index) => {
       return(
         <Row cells={row} open={this.open.bind(this)} mark={this.mark.bind(this)} />
       );
