@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MineField from './MineField';
+import MineField from './MineField.jsx';
 
 export default class Minesweeper extends Component {
   constructor(props) {
