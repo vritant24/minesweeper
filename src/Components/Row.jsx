@@ -18,10 +18,10 @@ export default class Row extends Component {
       return(
         <Cell cell={cell} open={this.props.open} mark={this.props.mark} />
       );
-    })();
+    });
 
     return (
-      <tr> {Cells} </tr>
+      <tr>{Cells}</tr>
     );
   }
 }

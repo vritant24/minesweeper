@@ -28,6 +28,7 @@ export default class Cell extends Component {
     }
   }
   render() {
+    var _this = this;
     var cell = () => {
       if(_this.state.isOpened){
         if(_this.state.hasMine){
@@ -54,7 +55,7 @@ export default class Cell extends Component {
           <div className="Cell__cover"></div>
         );
       }
-    }();
+    };
 
     return (
       <td className="Cell" onClick={this.open.bind(this)} onContextMenu={this.mark.bind(this)}>

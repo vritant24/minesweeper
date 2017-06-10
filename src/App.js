@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MineSweeper from './compnents/MineSweeper.jsx';
+import MineSweeper from './components/MineSweeper.jsx';
 
 class App extends Component {
   render() {

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Row from './rows.jsx'
+import Row from './Row.jsx'
 
 export default class MineField extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rows: this.createTable(props)
+      rows: this.createMineField(props)
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -17,9 +17,11 @@ export default class MineField extends Component {
   }
   createMineField(props) {
     var matrix = [];
-    for(var i = 0; i < props.numRow; i++) {
+    var i;
+    for(i = 0; i < props.numRow; i++) {
+      matrix.push([]);
       for(var j = 0; j < props.numCol; j++) {
-        matrix[i][j].push({
+        matrix[i].push({
           x: i,
           y: j,
           count: 0,
@@ -29,7 +31,7 @@ export default class MineField extends Component {
         });
       }
     }
-    for(var i = 0; i < props.numMine; i++) {
+    for(i = 0; i < props.numMine; i++) {
       var cell = matrix[Math.floor(Math.random() * props.numRow)][Math.floor(Math.random() * props.numCol)];
       if(cell.hasMine) {
         i--;
@@ -46,7 +48,7 @@ export default class MineField extends Component {
     }
     rows[cell.x][cell.y].isOpened = true;
 
-    var numAdjascentMines = this.countMines();
+    var numAdjascentMines = this.countMines(cell);
     rows[cell.x][cell.y].count = cell.hasMine ? "b" : numAdjascentMines;
     this.setState({rows: rows});
 
@@ -55,7 +57,7 @@ export default class MineField extends Component {
       this.props.checkNumFlag(-1);
     }
 
-    if(!(cell.hasMine) && numAdjascentMines == 0) {
+    if(!(cell.hasMine) && numAdjascentMines === 0) {
       this.openAround(cell);
     }
 
@@ -90,7 +92,7 @@ export default class MineField extends Component {
     }
     return numMine;
   }
-  openAround() {
+  openAround(cell) {
     var row, col;
     var rows = this.state.rows;
     //check cells around given cell for mines
@@ -117,7 +119,7 @@ export default class MineField extends Component {
 
     return (
       <table className="MineField">
-        <tbody> {Rows} </tbody>
+        <tbody>{Rows}</tbody>
       </table>
     );
   }
