@@ -11,7 +11,7 @@ export default class MineField extends Component {
   componentWillReceiveProps(nextProps) {
     if(this.props.numOpen > nextProps.numOpen || this.props.numCol !== nextProps.numCol) {
       this.setState({
-        rows: this.createTable(nextProps)
+        rows: this.createMineField(nextProps)
       });
     }
   }
@@ -42,18 +42,19 @@ export default class MineField extends Component {
     return matrix;
   }
   open(cell) {
-    var rows = this.state.rows;
-    if(!(rows[cell.x][cell.y].isOpened)) {
+    console.log("open");
+    var _rows = this.state.rows;
+    if(!(_rows[cell.x][cell.y].isOpened)) {
       this.props.addNumOpen();
     }
-    rows[cell.x][cell.y].isOpened = true;
+    _rows[cell.x][cell.y].isOpened = true;
 
     var numAdjascentMines = this.countMines(cell);
-    rows[cell.x][cell.y].count = cell.hasMine ? "b" : numAdjascentMines;
-    this.setState({rows: rows});
+    _rows[cell.x][cell.y].count = cell.hasMine ? "b" : numAdjascentMines;
+    this.setState({rows: _rows});
 
-    if(rows[cell.y][cell.x].hasFlag) {
-      rows[cell.y][cell.x].hasFlag = false;
+    if(_rows[cell.y][cell.x].hasFlag) {
+      _rows[cell.y][cell.x].hasFlag = false;
       this.props.checkNumFlag(-1);
     }
 

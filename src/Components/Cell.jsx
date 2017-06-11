@@ -11,7 +11,7 @@ export default class Cell extends Component {
     };
   }
   componentWillReceiveProps(nextProps) {
-    this.setState= ({
+    this.setState({
       hasMine: nextProps.cell.hasMine,
       isOpened: nextProps.cell.isOpened,
       hasFlag: nextProps.cell.hasFlag,
@@ -29,7 +29,7 @@ export default class Cell extends Component {
   }
   render() {
     var _this = this;
-    var cell = () => {
+    var cell = (() => {
       if(_this.state.isOpened){
         if(_this.state.hasMine){
           return (
@@ -55,8 +55,7 @@ export default class Cell extends Component {
           <div className="Cell__cover"></div>
         );
       }
-    };
-
+    })();
     return (
       <td className="Cell" onClick={this.open.bind(this)} onContextMenu={this.mark.bind(this)}>
         {cell}

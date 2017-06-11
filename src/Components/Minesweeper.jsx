@@ -16,7 +16,7 @@ export default class Minesweeper extends Component {
   }
   componentWillUpdate() {
     if(this.state.status === "playing") {
-      this.judge();
+      this.judge.call(this);
     }
   }
   componentWillMount() {
@@ -28,8 +28,9 @@ export default class Minesweeper extends Component {
     }
   }
   judge() {
-    if(this.state.numOpen + this.state.numMine >= this.state.numRow * this.state.numCol) {
+    if(this.state.numOpen + this.state.numMine >= (this.state.numRow * this.state.numCol)) {
       this.setState({status: "clear"});
+      clearInterval(this.interval);
     }
   }
   gameOver() {
@@ -39,10 +40,12 @@ export default class Minesweeper extends Component {
     this.setState({numFlag: this.state.numFlag + update});
   }
   addNumOpen() {
+    console.log("add open");
+    console.log(this.state.numOpen);
     if(this.state.numOpen === 0) {
       this.interval = setInterval(this.tick.bind(this), 1000);
     }
-    this.setState({numOpen: this.state.numOpen + 1});
+    this.setState({numOpen: (this.state.numOpen + 1)});
   }
   reset() {
     clearInterval(this.interval);

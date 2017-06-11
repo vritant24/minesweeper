@@ -103,9 +103,8 @@ embed {
   background-color: #eee;
   border: 1px solid #ccc;
   padding: 45px 10px 10px;
-  margin: 0 auto; }
-  .MineSweeper.easy {
-    width: 310px; }
+  margin: 0 auto;
+  width: 310px; }
   .MineSweeper.normal {
     width: 490px; }
   .MineSweeper.hard {
@@ -117,7 +116,7 @@ embed {
       margin: 0 10px; }
     .MineSweeper__level input[type=radio] {
       margin-right: 5px; }
-  .flagNum {
+  .numFlag {
     position: absolute;
     right: 10px;
     top: 10px;
@@ -147,15 +146,15 @@ embed {
       display: block; }
     .face .playing {
       /*background: url("../images/icn_face_01.png") no-repeat center center, #ccc; }*/
-      background: red};
+      background: red;}
     .face .clear {
       /*background: url("../images/icn_face_02.png") no-repeat center center, #ccc; }*/
-      background: red};
+      background: red;}
     .face .gameover {
       /*background: url("../images/icn_face_03.png") no-repeat center center, #ccc; }*/
-      background: red};
+      background: red;}
 
-.Table {
+.MineField {
   border: 1px solid #ccc;
   margin: 0 auto; }
 
