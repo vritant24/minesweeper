@@ -40,12 +40,10 @@ export default class Minesweeper extends Component {
     this.setState({numFlag: this.state.numFlag + update});
   }
   addNumOpen() {
-    console.log("add open");
-    console.log(this.state.numOpen);
     if(this.state.numOpen === 0) {
       this.interval = setInterval(this.tick.bind(this), 1000);
     }
-    this.setState({numOpen: (this.state.numOpen + 1)});
+    this.setState({numOpen: (++this.state.numOpen)});
   }
   reset() {
     clearInterval(this.interval);

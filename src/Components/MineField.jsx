@@ -42,9 +42,9 @@ export default class MineField extends Component {
     return matrix;
   }
   open(cell) {
-    console.log("open");
     var _rows = this.state.rows;
     if(!(_rows[cell.x][cell.y].isOpened)) {
+      console.log("here");
       this.props.addNumOpen();
     }
     _rows[cell.x][cell.y].isOpened = true;
